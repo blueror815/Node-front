@@ -1,0 +1,46 @@
+<div ng-controller="ConferenceController">
+    <h4 class="text-center text-thin">+1 Panel</h4>
+    <p class="text-center text-thin">Patient name | Case 12345</p>
+    <div class="status">
+        <div class="join-leave">
+            <button class="btn btn-lg btn-default">Join</button>
+        </div>
+        <div class="start-finish">
+            <div class="title">Starts</div>
+            <div class="time">3:00 <span>PM</span></div>
+        </div>
+    </div>
+    <p class="text-left text-muted colleagues-present-title">Colleagues present</p>
+    <div class="colleagues">
+        <img src="img/user/01.jpg" alt="Image" class="img-circle">
+        <img src="img/user/02.jpg" alt="Image" class="img-circle active">
+        <img src="img/user/03.jpg" alt="Image" class="img-circle">
+        <img src="img/user/04.jpg" alt="Image" class="img-circle">
+        <img src="img/user/05.jpg" alt="Image" class="img-circle">
+        <img src="img/user/06.jpg" alt="Image" class="img-circle">
+        <!--TODO: This will need to be hooked up to a mic service-->
+    <span class="audio" ng-click="activateMic()" ng-class="{active: activeMic}">
+        <em ng-if="!activeMic" class="fa fa-microphone-slash"></em>
+        <em ng-if="activeMic" class="fa fa-microphone"></em>
+    </span>
+    </div>
+    <p class="text-left text-muted">Collaboration tools</p>
+    <div class="collab-tools">
+        <button type="button" class="btn btn-lg">Dicom viewer</button>
+        <button type="button" class="btn btn-lg">Shared whiteboard</button>
+        <button type="button" class="btn btn-lg">Group messaging</button>
+        <button type="button" class="btn btn-lg">Case decisions</button>
+    </div>
+    <div class="full-width">
+        <div class="date">Jan 9</div>
+        <div class="time">3:00 PM</div>
+    </div>
+    <div class="full-width">
+        <div class="date">Jan 12</div>
+        <div class="time">1:00 PM</div>
+    </div>
+    <div class="full-width">
+        <div class="date">Jan 15</div>
+        <div class="time">4:00 PM</div>
+    </div>
+</div>

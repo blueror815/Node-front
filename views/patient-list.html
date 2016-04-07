@@ -1,0 +1,152 @@
+<h3 ng-controller="PatientListController as plist">Patients
+    <a ng-if="plist.user_type=='provider'" class="btn btn-default pull-right" ng-dialog="invitePatientModal">
+        <span class=""><em class="fa fa-plus"></em></span>
+        Invite patient
+    </a>
+    <a ng-if="plist.user_type=='provider'" class="btn btn-default pull-right" ng-dialog="addPatientModal">
+        <span class=""><em class="fa fa-plus"></em></span>
+        Add patient
+    </a>
+</h3>
+
+<script type="text/ng-template" id="invitePatientModal">
+    <div ng-controller="PatientListController as plist">
+        <div class="modal-header">
+            <h4 id="myModalLabel" class="text-center modal-title">Invite Patient</h4>
+        </div>
+        <div class="modal-body">
+            <form role="form" ng-submit="plist.invitePatient()" name="plist.invitePatientForm" novalidate=""
+                  class="form-validate mb-lg">
+                <div class="form-group has-feedback">
+                    <label class="control-label">First Name</label>
+                    <input type="text" name="patient_first_name" placeholder=""
+                           ng-model="plist.patient.first_name" required="" class="form-control"/>
+                    <span ng-show="plist.invitePatientForm.patient_first_name.$dirty &amp;&amp; plist.invitePatientForm.patient_first_name.$error.required"
+                      class="text-danger">This field is required</span>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="control-label">Last Name</label>
+                    <input type="text" name="patient_last_name" placeholder=""
+                           ng-model="plist.patient.last_name" required="" class="form-control"/>
+                    <span ng-show="plist.invitePatientForm.patient_last_name.$dirty &amp;&amp; plist.invitePatientForm.patient_last_name.$error.required"
+                      class="text-danger">This field is required</span>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="control-label">Email Address</label>
+                    <input id="exampleInputEmail1" type="email" name="patient_email" placeholder=""
+                           autocomplete="off" ng-model="plist.patient.email" required=""
+                           class="form-control"/>
+                    <span ng-show="plist.invitePatientForm.patient_email.$dirty &amp;&amp; plist.invitePatientForm.patient_email.$error.required"
+                          class="text-danger">This field is required</span>
+                    <span ng-show="plist.invitePatientForm.patient_email.$dirty &amp;&amp; plist.invitePatientForm.patient_email.$error.email"
+                          class="text-danger">This field must be a valid email address</span>
+                </div>
+
+                <div ng-show="plist.authMsg" class="alert alert-danger text-center">{{plist.authMsg}}</div>
+                <div class="footer text-center">
+                    <button id="invite-patient-btn" type="submit" class="btn btn-primary">Invite Patient &nbsp; <img id="loadingbar" ng-show="plist.is_loading"  src="img/loading.gif" alt="App Logo" class="img-responsive" /></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="addPatientModal">
+    <div ng-controller="PatientListController as plist">
+        <div class="modal-header">
+            <h4 id="addPatientModalLabel" class="modal-title text-center">Add Patient</h4>
+        </div>
+        <div class="modal-body">
+            <form role="form" ng-submit="plist.addPatient()" name="plist.addPatientForm" novalidate=""
+                  class="form-validate mb-lg">
+                <div class="form-group has-feedback">
+                    <label class="control-label">First Name</label>
+                    <input type="text" name="patient_first_name" placeholder=""
+                           ng-model="plist.patient.first_name" required="" class="form-control"/>
+                <span ng-show="plist.addPatientForm.patient_first_name.$dirty &amp;&amp; plist.addPatientForm.patient_first_name.$error.required"
+                      class="text-danger">This field is required</span>
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="control-label">Last Name</label>
+                    <input type="text" name="patient_last_name" placeholder=""
+                           ng-model="plist.patient.last_name" required="" class="form-control"/>
+                <span ng-show="plist.addPatientForm.patient_last_name.$dirty &amp;&amp; plist.addPatientForm.patient_last_name.$error.required"
+                      class="text-danger">This field is required</span>
+                </div>
+                <!-- <div class="form-group has-feedback">
+                    <input id="exampleInputEmail1" type="email" name="patient_email" placeholder="Enter email"
+                           autocomplete="off" ng-model="aPCtrl.patient.email" required="" class="form-control"/>
+                    <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                    <span ng-show="aPCtrl.addPatientForm.patient_email.$dirty &amp;&amp; aPCtrl.addPatientForm.patient_email.$error.required"
+                          class="text-danger">This field is required</span>
+                    <span ng-show="aPCtrl.addPatientForm.patient_email.$dirty &amp;&amp; aPCtrl.addPatientForm.patient_email.$error.email"
+                          class="text-danger">This field must be a valid email address</span>
+                </div> -->
+                <div class='form-group has-feedback'>
+                <label class="control-label">Gender</label>
+                    <div class="radio c-radio">
+                        <label>
+                            <input type="radio" name="gender" value='Male' checked ng-model='plist.patient.gender'>
+                            <span class="fa fa-circle"></span>Male
+                        </label>
+                    </div>
+                    <div class="radio c-radio">
+                        <label>
+                            <input type="radio" name="gender" value='Female' ng-model='plist.patient.gender'>
+                               <span class="fa fa-circle"></span>Female
+                        </label>
+                    </div>
+                </div>
+                <div ng-show="plist.authMsg" class="alert alert-danger text-center">{{plist.authMsg}}</div>
+                <!-- <button type="submit" class="btn btn-block btn-primary mt-lg">Invite</button> -->
+                <div class="footer text-center">
+                    <button id="add-patient-btn" type="submit" class="btn btn-primary">Add Patient &nbsp; <img id="loadingbar" ng-show="plist.is_loading" src="img/loading.gif" alt="App Logo" class="img-responsive" /></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</script>
+        <!-- Button trigger modal -->
+        <!--<button ng-click="plist.open()" class="btn btn-primary">Open me!</button>-->
+        <!--<button ng-click="plist.open('lg')" class="btn btn-primary">Large modal</button>-->
+        <!--<button ng-click="plist.open('sm')" class="btn btn-primary">Small modal</button>-->
+    
+<div class="panel panel-default patient-list" ng-controller="PatientListController as plist" ng-init="plist.getPatients()">
+    <div class="panel-heading text-center" style="padding-top: 20px">
+        <img ng-show="plist.is_loading" src="img/ajax-loader2.gif" class="text-center" style="width: 60px">
+        <!-- <span ng-show="addSuccess" class="alert text-center">Patient added successfully</span> -->
+    </div>
+    <div class="panel-body">
+        <table datatable="ng" dt-options="plist.dtOptions" dt-column-defs="plist.dtColumnDefs" class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Case</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Last Update</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="patient in plist.patients">
+                <td ng-click="plist.goToDetail(patient.id)">{{ patient.id }}</td>
+                <td ng-click="plist.goToDetail(patient.id)">{{ patient.first_name }}</td>
+                <td ng-click="plist.goToDetail(patient.id)">{{ patient.last_name }}</td>
+                <td ng-click="plist.goToDetail(patient.id)">{{ patient.gender }}</td>                
+                <td ng-click="plist.goToDetail(patient.id)">{{ patient.updated_at }}</td>
+                <td>
+                    <button type="button" ng-click="plist.modifyPerson($index)"
+                            class="btn btn-sm btn-primary">
+                        <em class="fa icon-specimatch ico-moon"></em>
+                    </button>
+                    <button type="button" ng-click="plist.removePatient($index)"
+                            class="btn btn-sm btn-danger">
+                        <em class="fa fa-trash-o"></em>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
