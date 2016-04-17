@@ -118,6 +118,16 @@
                </div>
 
                <div class="modal-input form-group has-feedback">
+                  <input type="text" name="firstname" placeholder="First Name" ng-model="stripe_account.firstname" required="" class="form-control"></input>
+                  <span ng-show="addStripeAccountForm.firstname.$dirty &amp;&amp; addStripeAccountForm.firstname.$error.required" class="text-danger">This field is required</span>
+               </div>
+
+               <div class="modal-input form-group has-feedback">
+                  <input type="text" name="lastname" placeholder="Last Name" ng-model="stripe_account.lastname" required="" class="form-control"></input>
+                  <span ng-show="addStripeAccountForm.lastname.$dirty &amp;&amp; addStripeAccountForm.lastname.$error.required" class="text-danger">This field is required</span>
+               </div>
+
+               <div class="modal-input form-group has-feedback">
                   <input type="number" id="stripe_account_number" name="account_number" required="" class="form-control" ng-model="stripe_account.account_number" placeholder="Account Number"></input>
                   <span ng-show="addStripeAccountForm.account_number.$dirty &amp;&amp; addStripeAccountForm.account_number.$error.required" class="text-danger">This field is required</span>
                   <span ng-show="addStripeAccountForm.account_number.$dirty &amp;&amp; addStripeAccountForm.account_number.$error.number" class="text-danger">This field must be a valid number</span>

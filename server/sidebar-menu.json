@@ -21,7 +21,7 @@
   },
   {
     "text": "Billing",
-    "sref": "#",
+    "sref": "app.billing",
     "icon": "icon-billing ico-moon",
     "translate": "sidebar.nav"
   },

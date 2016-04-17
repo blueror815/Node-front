@@ -15,7 +15,7 @@
                         <h4>Profile</h4>
                         <small class="text-muted">Nulla pharetra imperdiet sapien ac faucibus.</small>
                     </li>
-                    <li ng-class="{'active':wizard.active(3)}" ng-click="wizard.go(3)" class="col-md-3">
+                    <li id="payment-tab" ng-class="{'active':wizard.active(3)}" ng-click="wizard.go(3)" class="col-md-3">
                         <h4>Payments</h4>
                         <small class="text-muted">Sed elementum lorem dolor, id fermentum metus.</small>
                     </li>
@@ -26,6 +26,8 @@
                 </ol>
                 <!-- END wizard steps indicator-->
                 <!-- START Wizard Step inputs -->
+
+                foo {{ test }}
                 <div ng-show="wizard.active(1)">
                     <fieldset>
                         <legend>Login</legend>
