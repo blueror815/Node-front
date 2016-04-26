@@ -17,10 +17,22 @@
            <span class=""><em class="fa fa-plus"></em></span>
            Add Bank Info(S)
       </button-->
+
+      <button type="submit" ng-if="account.user_type=='provider'" class="btn btn-default" ng-click="account.addACH()">
+          <span class=""><em class="fa fa-plus"></em></span>
+          Plaid Link
+      </button>
+
+      <button type="submit" ng-if="account.user_type=='provider'" class="btn btn-default" ng-click="account.chargeACH()">
+          <span class=""><em class="fa fa-cc-visa"></em></span>
+          ACH Charge
+      </button>
+      
       <button type="submit" ng-if="account.user_type=='provider'" class="btn btn-default" ng-click="account.addVendorID('sm')">
-           <span class=""><em class="fa fa-plus"></em></span>
+          <span class=""><em class="fa fa-plus"></em></span>
            Add Vendor(B)
       </button>
+
       <button type="submit" ng-if="account.user_type=='provider'" class="btn btn-default" ng-click="account.addBankID('sm')">
            <span class=""><em class="fa fa-plus"></em></span>
            Add Bank Info(B)
