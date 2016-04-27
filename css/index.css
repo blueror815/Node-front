@@ -113,3 +113,25 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+.modal-inner-div {
+  min-height: 200px;
+}
+.modal-inner-div input[type=file]{ display:none;}
+.modal-inner-div .studies h1{ font-size: 25px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

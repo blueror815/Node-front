@@ -47,16 +47,12 @@
             <form role="form" ng-submit="addVendorID()" name="addVendorForm" novalidate=""
                    class="form-validate mb-lg">
                <div class="modal-input form-group has-feedback">
-                  <input type="text" name="provider_first_name" placeholder="First Name"
-                         ng-model="provider.first_name" required="" class="form-control"/>
-                  <span ng-show="addVendorForm.provider_first_name.$dirty &amp;&amp; addVendorForm.provider_first_name.$error.required"
-                    class="text-danger">This field is required</span>
+                  <input type="text" name="provider_first_name" placeholder="First Name" ng-model="provider.first_name" required="" class="form-control"/>
+                  <span ng-show="addVendorForm.provider_first_name.$dirty &amp;&amp; addVendorForm.provider_first_name.$error.required" class="text-danger">This field is required</span>
                </div>
                <div class="modal-input form-group has-feedback">
-                  <input type="text" name="provider_last_name" placeholder="Last Name"
-                         ng-model="provider.last_name" required="" class="form-control"/>
-                  <span ng-show="addVendorForm.provider_last_name.$dirty &amp;&amp; addVendorForm.provider_last_name.$error.required"
-                       class="text-danger">This field is required</span>
+                  <input type="text" name="provider_last_name" placeholder="Last Name" ng-model="provider.last_name" required="" class="form-control"/>
+                  <span ng-show="addVendorForm.provider_last_name.$dirty &amp;&amp; addVendorForm.provider_last_name.$error.required" class="text-danger">This field is required</span>
                </div>
                <!-- <div class="form-group has-feedback">
                   <label class="control-label">Email Address</label>
@@ -87,21 +83,16 @@
             <form role="form" ng-submit="addBankID()" name="addBankAccountForm" novalidate=""
                    class="form-validate mb-lg">
                <div class="modal-input form-group has-feedback">
-                  <input type="number" name="account_number" placeholder="Account Number"
-                         ng-model="bank.account_number" required="" class="form-control"/>
-                  <span ng-show="addBankAccountForm.account_number.$dirty &amp;&amp; addBankAccountForm.account_number.$error.required"
-                       class="text-danger">This field is required</span>
-                  <span ng-show="addBankAccountForm.account_number.$dirty &amp;&amp; addBankAccountForm.account_number.$error.number"
-                           class="text-danger">This field must be a valid number</span>
+                  <input type="number" name="account_number" placeholder="Account Number" ng-model="bank.account_number" required="" class="form-control"/>
+                  <span ng-show="addBankAccountForm.account_number.$dirty &amp;&amp; addBankAccountForm.account_number.$error.required" class="text-danger">This field is required</span>
+                  <span ng-show="addBankAccountForm.account_number.$dirty &amp;&amp; addBankAccountForm.account_number.$error.number" class="text-danger">This field must be a valid number</span>
                </div>
 
                <div class="modal-input form-group has-feedback">
                   <input type="number" name="routing_number" placeholder="Routing Number"
                          ng-model="bank.routing_number" required="" class="form-control"/>
-                  <span ng-show="addBankAccountForm.routing_number.$dirty &amp;&amp; addBankAccountForm.routing_number.$error.required"
-                       class="text-danger">This field is required</span>
-                  <span ng-show="addBankAccountForm.routing_number.$dirty &amp;&amp; addBankAccountForm.routing_number.$error.number"
-                           class="text-danger">This field must be a valid number</span>
+                  <span ng-show="addBankAccountForm.routing_number.$dirty &amp;&amp; addBankAccountForm.routing_number.$error.required" class="text-danger">This field is required</span>
+                  <span ng-show="addBankAccountForm.routing_number.$dirty &amp;&amp; addBankAccountForm.routing_number.$error.number" class="text-danger">This field must be a valid number</span>
                </div>
 
                <div ng-show="bankAuthMsg" class="alert alert-danger text-center">{{bankAuthMsg}}</div>
