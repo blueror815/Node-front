@@ -76,12 +76,18 @@
                 <span ng-show="form.validateInput('date', 'required')" class="text-danger">This field is required</span>
             </div>
 
-            <div class="modal-input form-group has-feedback">
-              <input type="text" name="address1" ng-model="patient.address1" placeholder="Address1" class="form-control"></input>
+            <div class="modal-input form-group has-feedback" style="display: inline-block;">
+              <input type="text" name="city" ng-model="patient.city" placeholder="City" class="col-sm-4 city-state form-control"></input>
+              <select name="state" placeholder="State" class="col-sm-4 city-state form-control" ng-model="patient.state">
+                <option selected="selected">State</option>
+                <option ng-repeat="state in states" value="{{state}}">{{state}}</option>
+              </select>
+              <!-- <input type="number" name="zipcode" ng-model="patient.zipcode" placeholder="Zip Code" class="col-sm-4 city-state form-control"></input>
+              <span ng-show="addPatientForm.zipcode.$dirty &amp;&amp; addPatientForm.zipcode.$error.number" class="text-danger">Zipcode field must be a valid number</span> -->
             </div>
 
             <div class="modal-input form-group has-feedback">
-              <input type="text" name="address2" ng-model="patient.address2" placeholder="Address2" class="form-control"></input>
+              <input type="text" name="address" ng-model="patient.address" placeholder="Address" class="form-control"></input>
             </div>
 
             <div class="modal-input form-group has-feedback">

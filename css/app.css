@@ -11887,6 +11887,10 @@ body .wrapper > footer {
   width: 20px;
 }
 
+.city-state.form-control, body .city-state.bootstrap-tagsinput {
+  width: 50%;
+}
+
 .actionables .media-box-body {
   font-size: 1.1em;
 }
