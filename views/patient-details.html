@@ -19,7 +19,7 @@
                             </div>
                             <div class="status">
                                 <strong class="media-box-heading">{{patient.first_name}}  {{patient.last_name}}</strong><span> {{patient.gender}} | age {{age}}</span>
-                                <div class="text-muted">Diagnosis: stage 2 colon cancer</div>
+                                <div class="text-muted">Diagnosis: {{latestDiagnosis.name}}</div>
                             </div>
                         </div>
                     </td>
@@ -225,7 +225,6 @@
                             </button>
                         </h5>
                         <table class="table table-striped table-bordered table-hover">
-
                             <tbody>
                             <tr>
                                 <th>Problem</th>
@@ -236,17 +235,18 @@
                                 <th>Status</th>
                                 <th>Notes</th>
                             </tr>
-                            <tr>
-                                <td>HERPETIC VULVOVAGINITIS</td>
+                            <tr ng-repeat="diagnosis in diagnosises">
+                                <td>{{diagnosis.name}}</td>
+                                <td>{{diagnosis.icd_version === 10 ? diagnosis.icd_code : "--"}}</td>
+                                <td>{{diagnosis.icd_version === 9 ? diagnosis.icd_code : "--"}}</td>
                                 <td></td>
-                                <td>054.11</td>
-                                <td>2342345</td>
-                                <td>Dec. 21, 2012, midnight</td>
-                                <td>Active</td>
-                                <td>sdfgsdfg</td>
+                                <td>{{diagnosis.date_diagnosis}}</td>
+                                <td>{{diagnosis.status}}</td>
+                                <td>{{diagnosis.notes}}</td>
                             </tr>
                             </tbody>
                         </table>
+
                         <h5>
                             Allergies
                             <button type="button" class="pull-right btn btn-green"
