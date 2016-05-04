@@ -230,19 +230,19 @@
                                 <th>Problem</th>
                                 <th>ICD-10-CM</th>
                                 <th>ICD-9-CM</th>
-                                <th>SNOMED</th>
+                                <!-- <th>SNOMED</th> -->
                                 <th>Diagnosis Date</th>
                                 <th>Status</th>
-                                <th>Notes</th>
+                                <!-- <th>Notes</th> -->
                             </tr>
                             <tr ng-repeat="diagnosis in diagnosises">
                                 <td>{{diagnosis.name}}</td>
                                 <td>{{diagnosis.icd_version === 10 ? diagnosis.icd_code : "--"}}</td>
                                 <td>{{diagnosis.icd_version === 9 ? diagnosis.icd_code : "--"}}</td>
-                                <td></td>
+                                <!-- <td></td> -->
                                 <td>{{diagnosis.date_diagnosis}}</td>
                                 <td>{{diagnosis.status}}</td>
-                                <td>{{diagnosis.notes}}</td>
+                                <!-- <td>{{diagnosis.notes}}</td> -->
                             </tr>
                             </tbody>
                         </table>
@@ -447,31 +447,49 @@
                             <em class="fa fa-file-text-o fa-fw"></em>Files
                         </uib-tab-heading>
                         <div>
-                            <!-- START table responsive-->
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>File Type</th>
-                                        <th>File Name</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr ng-repeat="file in patientFiles">
-                                        <td ng-bind="file.date | date:'MM/dd/yyyy'">10/21/2013</td>
-                                        <td>DCM</td>
-                                        <td><a ui-sref="dicom-viewer({dicom_id: file.dicom_id})" target="_blank" ng-bind="file.file_name"></a></td>
-                                    </tr>
-                                    <tr ng-if="patientFiles.length == 0">
-                                        <td colspan="3">No Files Found</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- END table responsive-->
-                            <div class="panel-footer text-right"><a class="btn btn-default btn-sm" data-ng-click="uploadFilesPopup()">Upload File</a>
-                            </div>
+						<!-- START table responsive-->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>File Type</th>
+                                    <th>File Name</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="file in patientFiles">
+                                    <td ng-bind="file.date | date:'MM/dd/yyyy'"></td>
+                                    <td ng-bind="file.file_type"></td>
+                                    <td>
+										<a ng-if="file.file_type == 'dcm'" ui-sref="dicom-viewer({dicom_id: file.dicom_id})" target="_blank" ng-bind="file.file_name"></a>
+										
+										<a ng-if="file.file_type == 'png' || file.file_type == 'jpg' || file.file_type == 'jpeg'" href="{{file.file_url}}" target="_blank" ng-bind="file.file_name"></a>
+										
+										<a ng-if="file.file_type != 'png' && file.file_type != 'jpg' && file.file_type != 'jpeg' && file.file_type != 'dcm'" ng-bind="file.file_name"></a>
+									</td>
+                                </tr>
+                                <tr ng-if="patientFiles.length == 0">
+                                    <td colspan="3">No Files Found</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END table responsive-->
+                        <div class="panel-footer">
+							<div class="row">
+								<div class="col-lg-4">
+									<a class="btn btn-default btn-sm" data-ng-click="fileTypeConfirm()">Upload File</a>
+								</div>
+								<div class="col-lg-6"></div>
+								<div class="col-lg-2 text-right">
+									<uib-pagination total-items="filesCount" ng-model="pageNumber" max-size="maxSize" class="pagination-sm" items-per-page="filesPerPage" ng-change="filesPagination(pageNumber)" direction-links="false" boundary-links="true" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+								</div>
+							</div>
+						</div>
+                        <div >
+							
+                        </div>
                         </div>
                     </uib-tab>
                 </uib-tabset>
@@ -663,7 +681,7 @@
 
 <script type="text/ng-template" id="/uploadDicomModal.html">
 	
-	 <div class="modal-header" id="patient-listing">
+	 <div class="modal-header">
 		<button type="button" data-dismiss="modal" aria-hidden="true" ng-click="cancel()" class="close">×</button>
 		<h4 id="myModalLabel" style="padding-top: 0px;" class="text-center modal-title">Box Dicom Import</h4>
 	 </div>
@@ -671,13 +689,27 @@
 	 <div class="modal-body modal-inner-div" id="my-container">
 		 <script type="text/javascript">
 			$(function () {
-				setTimeout(function () {
-					box.dicom.createImportWidget('my-container', {
-						'accessToken': angular.element(document.getElementById('patient-listing')).scope().accessToken,
-						'folderId': angular.element(document.getElementById('patient-listing')).scope().dicom_folder_id
-					});
-				}, 2500);
+				box.dicom.createImportWidget('my-container', {
+					'accessToken': angular.element(document.getElementById('patient-details-page')).scope().accessToken,
+					'folderId': angular.element(document.getElementById('patient-details-page')).scope().boxFolderId
+				});
 			});
        </script>
+	 </div>
+</script>
+
+<script type="text/ng-template" id="/fileTypeModal.html">
+	
+	 <div class="modal-header">
+		<button type="button" data-dismiss="modal" aria-hidden="true" ng-click="cancel()" class="close">×</button>
+		<h4 style="padding-top: 0px;" class="text-center modal-title">Select file type to upload</h4>
+	 </div>
+	 
+	 <div class="modal-body modal-inner-div">
+		 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+		<div style="margin: 10px 0px; text-align: center;">
+			<a class="btn btn-default btn-sm" data-ng-click="uploadFilesPopup()">DICOM File</a>
+			<div class="btn btn-default btn-sm" ngf-select="uploadFilesToBox($file)">Other Files </div>
+		</div>
 	 </div>
 </script>

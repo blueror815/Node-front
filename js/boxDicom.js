@@ -7895,16 +7895,19 @@
                 //to save the uploaded image in database
 
                 if (undefined === c.status) {
+					
                     var current_patient_id = angular.element(document.getElementById('patient-details-page'))
                         .scope()
-                        .current_patient_id;
+                        .currentPatientId;
                     var api_url = angular.element(document.getElementById('patient-details-page'))
                         .scope()
-                        .api_url;
+                        .apiUrl;
+                        
                     var data = {};
                     data.dicom_id = c.entries[0].id;
                     data.file_id = c.entries[0].file_version.id;
                     data.file_name = c.entries[0].name;
+                    data.file_type = 'dcm';
                     data.patient_id = current_patient_id;
 
                     if (data.file_name != 'study.boxdicom') {
@@ -14058,7 +14061,7 @@ new S(170, 800, !1, "Flair", "MR"), new S(950, 1900, !1, "PD", "MR")]
     g = To.prototype;
     g.R = function (a) {
         this.D = a;
-        a.innerHTML = '<p>Imported DICOM images will be automatically sorted by study and available to view in the Box DICOM Viewer or selected Box folder.</p><div class="drop-zone"><div class="drop-zone-icon"></div><div class="drop-zone-helper">Drag and drop images to import<br>or <a href="javascript:void(0)" class="file-link">choose files</a> or <a href="javascript:void(0)" class="directory-link">folders</a>.</div><input class="file-input hidden-button" type="file" multiple><input class="directory-input hidden-button" type="file" multiple webkitdirectory></div><div id="box-dicom-import-unsupported" class="alert alert-block" style="display:none; padding:10px; color: #a94442; background-color: #f2dede; border-color: #a94442;"><h4>Warning!</h4><p>Your browser has limited support for the DICOM uploader. You will not be able to upload "directories". You can only upload "files".</p><p>For the best upload experience, we recommend <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>.</p></div><div class="studies"><h1>Studies</h1><div class="studies-list"></div></div>'.toString();
+        a.innerHTML = '<p>Imported DICOM images will be automatically sorted by study and available to view in the Box DICOM Viewer or selected Box folder.</p><div class="drop-zone"><div class="drop-zone-icon"></div><div class="drop-zone-helper">Drag and drop images to import or <a href="javascript:void(0)" class="file-link">choose files</a> <a href="javascript:void(0)" class="directory-link"></a>.</div><input class="file-input hidden-button" type="file" multiple><input class="directory-input hidden-button" type="file" multiple webkitdirectory></div><div id="box-dicom-import-unsupported" class="alert alert-block" style="display:none; padding:10px; color: #a94442; background-color: #f2dede; border-color: #a94442;"><h4>Warning!</h4><p>Your browser has limited support for the DICOM uploader. You will not be able to upload "directories". You can only upload "files".</p><p>For the best upload experience, we recommend <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a>.</p></div><div class="studies"><h1>Studies</h1><div class="studies-list"></div></div>'.toString();
         pc(a,
             "box-dicom-import-main");
         this.b = a.querySelector(".drop-zone");
