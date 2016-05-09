@@ -42,6 +42,7 @@
                            https://js.stripe.com
                            https://checkout.stripe.com
                            https://cdn.plaid.com/
+                           https://static.twilio.com
                            ;
                style-src  'self' 'unsafe-inline'
                            127.0.0.1
@@ -87,27 +88,28 @@
 </head>
 
 <body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat, 'offsidebar-open': app.offsidebarOpen, 'aside-toggled': app.asideToggled}">
-<!--  <div class="app">
-     <h1>Apache Cordova</h1>
-     <div id="deviceready" class="blink">
-         <p class="event listening">Connecting to Device</p>
-         <p class="event received">Device is Ready yo</p>
-         <p></p>
-     </div>
- </div> -->
+	<!--  <div class="app">
+		 <h1>Apache Cordova</h1>
+		 <div id="deviceready" class="blink">
+			 <p class="event listening">Connecting to Device</p>
+			 <p class="event received">Device is Ready yo</p>
+			 <p></p>
+		 </div>
+	 </div> -->
 
-<!-- add back in when ready for PROD -->
-<!--<div data-preloader></div>-->
-<div data-ui-view="" data-autoscroll="false" class="wrapper"></div>
-<script src="https://checkout.stripe.com/checkout.js"></script>
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
-<script src="js/base.js"></script>
-<script src="js/app.js"></script>
-<script src="js/custom.js"></script>
-<script type="text/javascript" src="cordova.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/boxDicom.js"></script>
+	<!-- add back in when ready for PROD -->
+	<!--<div data-preloader></div>-->
+	<div data-ui-view="" data-autoscroll="false" class="wrapper"></div>
+	<script src="https://checkout.stripe.com/checkout.js"></script>
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+	<script src="https://cdn.plaid.com/link/stable/link-initialize.js"></script>
+	<script src="js/base.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/custom.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/boxDicom.js"></script>
+	<script src="https://static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
+	<script type="text/javascript" src="js/browser-calls.js"></script>
 </body>
-
 </html>

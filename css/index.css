@@ -59,6 +59,12 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+.conf-number{
+	display:block;
+	text-align: center;
+	font:size: 19px;
+}
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {

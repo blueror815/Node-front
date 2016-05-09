@@ -1,9 +1,9 @@
-<div ng-controller="ConferenceController">
+<div >
     <h4 class="text-center text-thin">+1 Panel</h4>
     <p class="text-center text-thin">Patient name | Case 12345</p>
     <div class="status">
         <div class="join-leave">
-            <button class="btn btn-lg">Leave</button>
+            <button class="btn btn-lg hangup-button" ng-disabled="leaveDisable" ng-click="leaveConference()" >Leave</button>
         </div>
         <div class="start-finish">
             <div>Ends</div>
