@@ -77,7 +77,7 @@ now {
 {
 	margin-right: 5px;
 }  
-  
+.tab-pane a.full-width:hover{opacity:0.7;}
 
 @media only screen and (min-width: 768px) {
   .jumbotron {
@@ -11966,9 +11966,9 @@ body .wrapper > footer {
   margin-bottom: 20px;
   font-size: 1.2em;
   background: #0B6191;
-  color: #ffffff;
+  color: #ffffff;padding:10px 0px;
 }
-.tab-pane .collab-tools button:active {
+.tab-pane .collab-tools button:active ,.tab-pane .collab-tools button:hover {
   background: #095179;
 }
 .tab-pane .audio {
@@ -12024,25 +12024,25 @@ body .wrapper > footer {
   min-height: 30px;
 }
 .tab-pane .status > div {
-  width: 50%;
+  width: 100%;
   float: left;
   padding: 0 0 0 10px;
 }
 .tab-pane .status .join-leave {
-  text-align: right;
+  text-align: right;width:48%;float:left;
 }
 .tab-pane .status .join-leave button {
   width: 90%;
   font-size: 1.2em;
 }
 .tab-pane .status .start-finish {
-  font-size: .8em;
+  font-size: .8em;width:48%;float:right;
 }
 .tab-pane .status .start-finish:first-child {
   margin-bottom: -5px;
 }
 .tab-pane .status .start-finish .title {
-  margin-top: 3px;
+  margin-top: 0px;
 }
 .tab-pane .status .time {
   font-weight: bold;
