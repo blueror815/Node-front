@@ -396,24 +396,24 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h4>CONTACT</h4></div>
             <div class="panel-body">
-                Shanghai Yizhong Biotechnology Co., LTD.
+                {{productDetails.details.Location[0].Facility[0].FacilityName}}.
                 <br/>
-                1-800-123-4567
+                {{productDetails.details.Location[0].CTGovContact[0].Phone}}
                 <br/>
-                email.name@email.com
+                {{productDetails.details.Location[0].CTGovContact[0].Email}}
             </div>
         </div>
         <!-- Tag Cloud-->
         <div class="panel panel-default">
             <div class="panel-heading"><h4>LOCATION</h4></div>
             <div class="panel-body">
-                Shanghai Yizhong Biotechnology Co., LTD.
+                {{productDetails.details.Location[0].Facility[0].FacilityName}}.
                 <br/>
-                1234 Address St.
+                {{productDetails.details.Location[0].Facility[0].PostalAddress[0].City}}.
                 <br/>
-                Somewhere, State
+                {{productDetails.details.Location[0].Facility[0].PostalAddress[0].PoliticalSubUnitName[0]._}}, {{productDetails.details.Location[0].Facility[0].PostalAddress[0].CountryName[0]._}}
                 <br/>
-                37373
+                {{productDetails.details.Location[0].Facility[0].PostalAddress[0].PostalCode_ZIP}}
             </div>
         </div>
     </div>
@@ -566,15 +566,15 @@
       <div class="panel panel-default">
          <div class="panel-heading"><h4>CONTACT</h4></div>
          <div class="panel-body">
-            Shanghai Yizhong Biotechnology Co., LTD.
+            {{productDetails.details.Location[0].Facility[0].FacilityName}}
             <br/>
-            1-800-123-4567
+            {{productDetails.details.Location[0].CTGovContact[0].Phone}}
             <br/>
-            email.name@email.com
+            {{productDetails.details.Location[0].CTGovContact[0].Email}}
          </div>
       </div>
       <!-- Tag Cloud-->
-      <div class="panel panel-default">
+      <!-- <div class="panel panel-default">
          <div class="panel-heading"><h4>LOCATION</h4></div>
          <div class="panel-body">
             Shanghai Yizhong Biotechnology Co., LTD.
@@ -585,7 +585,7 @@
             <br/>
             37373
          </div>
-      </div>
+      </div> -->
    </div>
    <!--end sidebar-->
 </div>

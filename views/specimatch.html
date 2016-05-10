@@ -56,10 +56,10 @@
                             </div>
                         </td>
 
-                        <td ng-if='product.recordType == "clinicalTrials"'>
+                        <td ng-if='product.recordType == "clinicalTrials"' ui-sref="app.specimatch-results({p_type:product.recordType, p_id:product._id })">
                             <div class="media-box">
                                 <a href="#" ui-sref="app.specimatch-results({p_type:product.recordType, p_id:product._id })" class="pull-left icon-image">
-                                    <img src="img/icons_trials_1.png" alt="" class="media-box-object img-responsive" />
+                                    <img ng-if="product.ProtocolPhase" src="img/icons_trials_{{product.ProtocolPhase}}.png" alt="" class="media-box-object img-responsive" />
                                 </a>
                                 <div class="media-box-body">
                                     <!--<div class="pull-right btn btn-info btn-sm">View</div>-->
@@ -72,7 +72,7 @@
                             <br/>
                             <p class="visible-xs">Sed gravida auctor odio. Sed viverra rutrum hendrerit. Praesent dapibus justo dolor. varun nayyar rhoncus consectetur eros vehicula accumsan.</p>
                         </td>
-                        <td ng-if='product.recordType == "drugs"'>
+                        <td ng-if='product.recordType == "drugs"' ui-sref="app.specimatch-results({p_type:product.recordType, p_id:product._id })">
                             <div class="media-box">
                                 <a href="#" ui-sref="app.specimatch-results({p_type:product.recordType, p_id:product._id })" class="pull-left icon-image">
                                     <img src="img/icons_drugs.png" alt="" class="media-box-object img-responsive" />
