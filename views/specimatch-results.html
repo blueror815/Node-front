@@ -396,24 +396,28 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h4>CONTACT</h4></div>
             <div class="panel-body">
-                {{productDetails.details.Location[0].Facility[0].FacilityName != "" ? productDetails.details.Location[0].Facility[0].FacilityName : "--"}}
-                <br/>
-                {{productDetails.details.Location[0].CTGovContact[0].Phone != "" ? productDetails.details.Location[0].CTGovContact[0].Phone : "--"}}
-                <br/>
-                {{productDetails.details.Location[0].CTGovContact[0].Email != "" ? productDetails.details.Location[0].CTGovContact[0].Email : "--"}}
+                <div ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="productDetail in productDetails.details.Location">
+                    {{productDetail.Facility[0].FacilityName != "" ? productDetail.Facility[0].FacilityName : "--"}}
+                    <br/>
+                    {{productDetail.CTGovContact[0].Phone != "" ? productDetail.CTGovContact[0].Phone : "--"}}
+                    <br/>
+                    {{productDetail.CTGovContact[0].Email != "" ? productDetail.CTGovContact[0].Email : "--"}}
+                </div>
             </div>
         </div>
         <!-- Tag Cloud-->
         <div class="panel panel-default">
             <div class="panel-heading"><h4>LOCATION</h4></div>
             <div class="panel-body">
-                {{productDetails.details.Location[0].Facility[0].FacilityName != "" ? productDetails.details.Location[0].Facility[0].FacilityName : "--"}}
-                <br/>
-                {{productDetails.details.Location[0].Facility[0].PostalAddress[0].City != "" ? productDetails.details.Location[0].Facility[0].PostalAddress[0].City : "--"}}
-                <br/>
-                {{productDetails.details.Location[0].Facility[0].PostalAddress[0].PoliticalSubUnitName[0]._ != "" ? productDetails.details.Location[0].Facility[0].PostalAddress[0].PoliticalSubUnitName[0]._ : "--"}}, {{productDetails.details.Location[0].Facility[0].PostalAddress[0].CountryName[0]._ != "" ? productDetails.details.Location[0].Facility[0].PostalAddress[0].CountryName[0]._ : "--"}}
-                <br/>
-                {{productDetails.details.Location[0].Facility[0].PostalAddress[0].PostalCode_ZIP != "" ? productDetails.details.Location[0].Facility[0].PostalAddress[0].PostalCode_ZIP : "--"}}
+                <div ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="productDetail in productDetails.details.Location">
+                    {{productDetail.Facility[0].FacilityName != "" ? productDetail.Facility[0].FacilityName : "--"}}
+                    <br/>
+                    {{productDetail.Facility[0].PostalAddress[0].City != "" ? productDetail.Facility[0].PostalAddress[0].City : "--"}}
+                    <br/>
+                    {{productDetail.Facility[0].PostalAddress[0].PoliticalSubUnitName[0]._ != "" ? productDetail.Facility[0].PostalAddress[0].PoliticalSubUnitName[0]._ : "--"}}, {{productDetail.Facility[0].PostalAddress[0].CountryName[0]._ != "" ? productDetail.Facility[0].PostalAddress[0].CountryName[0]._ : "--"}}
+                    <br/>
+                    {{productDetail.Facility[0].PostalAddress[0].PostalCode_ZIP != "" ? productDetail.Facility[0].PostalAddress[0].PostalCode_ZIP : "--"}}
+                </div>
             </div>
         </div>
     </div>

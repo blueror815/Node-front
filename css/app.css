@@ -72,13 +72,6 @@ now {
 .jumbotron {
   border: 1px solid #dde6e9;
 }
-.pagination > li > a,
-.pagination > li > span
-{
-	margin-right: 5px;
-}  
-.tab-pane a.full-width:hover{opacity:0.7;}
-
 @media only screen and (min-width: 768px) {
   .jumbotron {
     padding: 30px 15px;
@@ -11734,6 +11727,15 @@ body .wrapper > footer {
   padding-left: 35px;
 }
 
+.ng-binding.ng-scope.odd {
+  background: azure none repeat scroll 0 0;
+  padding: 10px;
+}
+
+.ng-binding.ng-scope.even {
+  padding: 10px;
+}
+
 @media (max-width: 480px) {
   .sidebar-toggle {
     position: absolute !important;
@@ -11966,9 +11968,9 @@ body .wrapper > footer {
   margin-bottom: 20px;
   font-size: 1.2em;
   background: #0B6191;
-  color: #ffffff;padding:10px 0px;
+  color: #ffffff;
 }
-.tab-pane .collab-tools button:active ,.tab-pane .collab-tools button:hover {
+.tab-pane .collab-tools button:active {
   background: #095179;
 }
 .tab-pane .audio {
@@ -12024,25 +12026,25 @@ body .wrapper > footer {
   min-height: 30px;
 }
 .tab-pane .status > div {
-  width: 100%;
+  width: 50%;
   float: left;
   padding: 0 0 0 10px;
 }
 .tab-pane .status .join-leave {
-  text-align: right;width:48%;float:left;
+  text-align: right;
 }
 .tab-pane .status .join-leave button {
   width: 90%;
   font-size: 1.2em;
 }
 .tab-pane .status .start-finish {
-  font-size: .8em;width:48%;float:right;
+  font-size: .8em;
 }
 .tab-pane .status .start-finish:first-child {
   margin-bottom: -5px;
 }
 .tab-pane .status .start-finish .title {
-  margin-top: 0px;
+  margin-top: 3px;
 }
 .tab-pane .status .time {
   font-weight: bold;
