@@ -1,14 +1,13 @@
 <div>
     <h4 class="text-center text-thin">+1 Panel</h4>
-    <p class="text-center text-thin">Patient name | Case {{activeConferenceId}}</p>
+    <p class="text-center text-thin">{{conferencePatient.firstname + ' ' + conferencePatient.lastname }} | Case 12345</p>
     <div class="status">
-		
-<!--
-		<input type="text" ng-model="conferenceId" name="conferenceId" placeholder="Enter conference id" />
--->
 		<div class="initial-panel" ng-if="JoinDiv">
-			<div class="join-leave">
-				<a class="btn btn-lg btn-default join-conf-btn" ng-click="startConfCall()" >Join</a><!--ng-disabled="joinDisable"-->
+			<div class="join-leave join-main">
+<!--
+				<a class="btn btn-lg btn-default join-conf-btn" ng-click="startConfCall()" ng-disabled="joinDisable">Join</a>
+-->
+				<a class="btn btn-lg btn-default join-conf-btn" ng-disabled="joinDisable">Join</a>
 			</div>
 			<div class="start-finish">
 				<div class="title">Starts</div>
@@ -17,7 +16,7 @@
         </div>
 		<div class="initial-panel" ng-if="!JoinDiv">
 			<div class="join-leave">
-				<a class="btn btn-lg btn-default join-conf-btn" ng-click="joinConference(joinConfId)" >Join</a><!--ng-disabled="joinDisable"-->
+				<a class="btn btn-lg btn-default join-conf-btn" ng-click="joinConference(joinConfId)" ng-disabled="joinDisable">Join</a>
 			</div>
 			<div class="start-finish">
 				<div class="title">Starts</div>
@@ -32,7 +31,7 @@
     </div>
     <p class="text-left text-muted colleagues-present-title">Colleagues present</p>
     <div class="colleagues">
-		<img src="img/user/02.jpg" alt="Image" class="img-circle" ng-repeat="user in confUsers" title='{{user}}'>
+		<img src="img/user/02.jpg" alt="Image" class="img-circle" ng-repeat="user in confUsers" title="{{user.firstname +' '+ user.lastname}}">
 		
 		<!--TODO: This will need to be hooked up to a mic service-->
 		<span class="audio" ng-click="activateMic()" ng-class="{active: activeMic}">
@@ -40,9 +39,6 @@
 			<em ng-if="activeMic" class="fa fa-microphone"></em>
 		</span>
     </div>
-<!--
-    <div class="well well-sm">Status : <span>{{twilio_status}}</span></div>
--->
     <p class="text-left text-muted">Collaboration tools</p>
     <div class="collab-tools">
         <button type="button" class="btn btn-lg">Dicom viewer</button>
@@ -51,7 +47,7 @@
         <button type="button" class="btn btn-lg">Case decisions</button>
     </div>
     
-    <a class="full-width" ng-repeat="conf in upCommingConferences" ng-click="makeConferenceActive(conf.conference_id, convertDate(conf.scheduledDateTime), convertTime(conf.scheduledDateTime))">
+    <a class="full-width" ng-repeat="conf in upCommingConferences" ng-click="makeConferenceActive(conf)">
         <div class="date" >{{convertDate(conf.scheduledDateTime)}}</div>
         <div class="time">{{convertTime(conf.scheduledDateTime)}}</div>
     </a>

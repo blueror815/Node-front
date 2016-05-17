@@ -1,0 +1,59 @@
+<h3> Create +1 Conference</h3>
+
+<form role="form" ng-submit="addConferenceForm.$valid && createConference()" name="addConferenceForm" novalidate="" class="form-validate mb-lg">
+	<div class="col-sm-12 create-outer">
+		<label class="col-sm-2 control-label">Select Patient</label>
+		<div class="col-sm-6 create-iner-selt">  
+			<select  ng-model="conferenceData.patient" class="chosen-select form-control" name="patient" required >
+				<option value=''>Select Patient</option>
+				<option ng-repeat="option in patients" value="{{option._id}}">{{option.firstname + ' ' + option.lastname}}</option>
+			</select>
+			<span ng-show="addConferenceForm.patient.$invalid && !addConferenceForm.patient.$pristine || addConferenceForm.$submitted && addConferenceForm.patient.$invalid">
+			<span  ng-hide="addConferenceForm.patient.$valid" class="text-danger">This field is required</span>
+		</span>
+		</div>
+		
+	</div>
+	<div class="col-sm-12 create-outer">
+		<label class="col-sm-2 control-label">Date</label>
+		<div class="col-sm-6">  
+			 <input type="text" name="date" required="" placeholder="Schedule date" uib-datepicker-popup="{{pickerFormat}}" ng-model="conferenceData.scheduleDate" is-open="pickerOpened" datepicker-options="pickerDateOptions"  close-text="Close" class="form-control datepicker-input" readonly />
+			<span class="input-group-btn date-picker-btn">
+			   <button type="button" ng-click="calenderOpen($event)" class="btn btn-default">
+				  <em class="fa fa-calendar"></em>
+			   </button>
+			</span>
+			<span ng-show="addConferenceForm.date.$invalid && !addConferenceForm.date.$pristine || addConferenceForm.$submitted && addConferenceForm.date.$invalid">
+			<span  ng-hide="addConferenceForm.date.$valid" class="text-danger">This field is required</span>
+		</span>
+		</div>
+		
+	</div>
+	
+	
+	<div class="col-sm-12 create-outer">
+		<label class="col-sm-2 control-label">Time</label>
+		<div class="col-sm-6">  
+			 <uib-timepicker ng-model="conferenceData.scheduleTime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+		</div>
+	</div>
+	<div class="col-sm-12 create-outer">
+		<label class="col-sm-2 control-label">Attendees</label>
+		<div class="col-sm-6">
+			<div class="col-sm-12 create-check" ng-repeat="provider in providers track by $index"> 
+				<div class="row"> 
+				 <label class="checkbox-inline c-checkbox">
+					<input type="checkbox"  value="provider._id" ng-model="attendees[provider._id]"/>
+					<span class="fa fa-check"></span>{{provider.firstname + ' ' + provider.lastname}}</label>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 create-outer">
+		<label class="col-sm-2 control-label">&nbsp;</label>
+		<div class="col-sm-6">  
+			 <button class="btn btn-sm btn-default" type="submit">Save</button>
+			 <button class="btn btn-sm btn-danger" ui-sref="app.dashboard_v2">Cancel</button>
+		</div>
+	</div>
+</form>

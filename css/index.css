@@ -65,6 +65,27 @@ body {
 	font:size: 19px;
 }
 
+.create-outer .datepicker-input {
+  display: inline-block;
+  width: 87%;
+}
+.create-outer .date-picker-btn{
+  display: inline-block;
+  width: auto;
+}
+.date-picker-btn .btn.btn-default {
+  border: 0 none;
+  margin: 0;
+  padding: 9px 12px;
+}
+.join-main .btn {
+  padding: 10px 15px !important;
+  width: 72%!important;
+   font-size: 1.2em!important;
+}
+.finish-time{
+width:auto!important;
+}
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
@@ -124,10 +145,17 @@ h1 {
 }
 .modal-inner-div input[type=file]{ display:none;}
 .modal-inner-div .studies h1{ font-size: 25px;}
-
-
-
-
+.create-outer{ margin-bottom:15px;}
+.create-outer .c-checkbox span, .c-radio span{ top:2px;}
+.create-outer button {
+  margin-right: 7px;
+  padding: 7px 22px;
+  border: 0 none;
+}
+ul table button
+{
+	padding: 6px 11px !important;
+}
 
 
 

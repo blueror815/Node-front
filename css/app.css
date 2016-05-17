@@ -72,6 +72,10 @@ now {
 .jumbotron {
   border: 1px solid #dde6e9;
 }
+
+
+
+
 @media only screen and (min-width: 768px) {
   .jumbotron {
     padding: 30px 15px;
@@ -118,9 +122,11 @@ now {
   box-shadow: none;
   border: 0;
 }
+/*
 .btn.btn-default, .ColVis .ColVis_Button {
   border-color: #eaeaea;
 }
+*/
 .input-group .btn, .input-group .ColVis .ColVis_Button, .ColVis .input-group .ColVis_Button {
   font-size: 14px;
   border-color: #dde6e9;
@@ -129,9 +135,11 @@ now {
   font-size: 13px;
 }
 
+/*
 .form-control, body .bootstrap-tagsinput {
   box-shadow: 0 0 0 #000 !important;
 }
+*/
 
 .input-sm,
 select.input-sm {
@@ -11965,7 +11973,7 @@ body .wrapper > footer {
 .tab-pane .collab-tools button {
   width: 100%;
   margin-bottom: 20px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   background: #0B6191;
   color: #ffffff;
 }
@@ -12025,12 +12033,20 @@ body .wrapper > footer {
   min-height: 30px;
 }
 .tab-pane .status > div {
-  width: 50%;
   float: left;
   padding: 0 0 0 10px;
+  width: 100%;
 }
 .tab-pane .status .join-leave {
+  display: inline-block;
   text-align: right;
+  width: 52%;
+}
+.start-finish {
+  display: inline-block;
+  float: right;
+  padding-right: 25px;
+  text-align: left;
 }
 .tab-pane .status .join-leave button {
   width: 90%;
