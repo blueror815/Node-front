@@ -67,7 +67,7 @@ body {
 
 .create-outer .datepicker-input {
   display: inline-block;
-  width: 87%;
+  width: 91%;
 }
 .create-outer .date-picker-btn{
   display: inline-block;
@@ -85,6 +85,20 @@ body {
 }
 .finish-time{
 width:auto!important;
+}
+.empty-record {
+  border: 1px solid #eee;
+  box-shadow: 0 0 1px #ccc;
+  color: #555;
+  padding: 7px 10px !important;
+  margin:0 11px !important;
+  border-radius:3px;
+}
+.btn.btn-lg.hangup-button:hover {
+  color: rgba(0, 0, 0, 0.44)!important;
+}
+.btn.btn-lg.hangup-button {
+  background: rgba(0, 0, 0, 0.13) none repeat scroll 0 0!important;
 }
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {

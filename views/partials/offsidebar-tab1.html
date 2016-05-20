@@ -1,17 +1,16 @@
 <div>
     <h4 class="text-center text-thin">+1 Panel</h4>
-    <p class="text-center text-thin">{{conferencePatient.firstname + ' ' + conferencePatient.lastname }} | Case 12345</p>
+    <p class="text-center text-thin">{{conferencePatient.firstname ? conferencePatient.firstname : '-'}}  {{conferencePatient.lastname ? conferencePatient.lastname : '-'}} | Case {{conferencePatient.casenumber ? conferencePatient.casenumber : '--'}}</p>
     <div class="status">
 		<div class="initial-panel" ng-if="JoinDiv">
 			<div class="join-leave join-main">
-<!--
-				<a class="btn btn-lg btn-default join-conf-btn" ng-click="startConfCall()" ng-disabled="joinDisable">Join</a>
--->
-				<a class="btn btn-lg btn-default join-conf-btn" ng-disabled="joinDisable">Join</a>
+				<!--<a class="btn btn-lg btn-default join-conf-btn" ng-click="startConfCall()" ng-disabled="joinDisable">Join</a>-->
+				<a class="btn btn-lg btn-default join-conf-btn" ng-disabled="joinDisable" >Join</a>
 			</div>
 			<div class="start-finish">
 				<div class="title">Starts</div>
-				<div class="time">{{currentTime}}<span>{{amPm}}</span></div>
+				<!--<div class="time">{{currentTime}}<span>{{amPm}}</span></div>-->
+				<div class="time">--:--<span></span></div>
 			</div>
         </div>
 		<div class="initial-panel" ng-if="!JoinDiv">
@@ -23,15 +22,14 @@
 				<div class="time">{{second_currentTime}}<span>{{second_amPm}}</span></div>
 			</div>
         </div>
-        
     </div>
-    
     <div class="conf-number">
 		<p>+1 219 230 3182</p>
     </div>
     <p class="text-left text-muted colleagues-present-title">Colleagues present</p>
     <div class="colleagues">
 		<img src="img/user/02.jpg" alt="Image" class="img-circle" ng-repeat="user in confUsers" title="{{user.firstname +' '+ user.lastname}}">
+		<p class="empty-record" ng-show="confUsers.length == 0">No colleagues present</p>
 		
 		<!--TODO: This will need to be hooked up to a mic service-->
 		<span class="audio" ng-click="activateMic()" ng-class="{active: activeMic}">
@@ -46,9 +44,9 @@
         <button type="button" class="btn btn-lg">Group messaging</button>
         <button type="button" class="btn btn-lg">Case decisions</button>
     </div>
-    
-    <a class="full-width" ng-repeat="conf in upCommingConferences" ng-click="makeConferenceActive(conf)">
+    <a class="full-width" ng-repeat="conf in upCommingConferences" ng-click="makeConferenceActive(conf)" scroll-to='joinConf'>
         <div class="date" >{{convertDate(conf.scheduledDateTime)}}</div>
         <div class="time">{{convertTime(conf.scheduledDateTime)}}</div>
     </a>
+    <p class="empty-record" ng-show="upCommingConferences.length == 0">No conference scheduled</p>
 </div>

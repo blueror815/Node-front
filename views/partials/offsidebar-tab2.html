@@ -1,13 +1,14 @@
 <div >
     <h4 class="text-center text-thin">+1 Panel</h4>
-    <p class="text-center text-thin">{{conferencePatient.firstname + ' ' + conferencePatient.lastname }} | Case 12345</p>
+    <p class="text-center text-thin">{{conferencePatient.firstname ? conferencePatient.firstname : '-'}}  {{conferencePatient.lastname ? conferencePatient.lastname : '-'}} | Case {{conferencePatient.casenumber ? conferencePatient.casenumber : '--'}}</p>
     <div class="status">
         <div class="join-leave">
             <button class="btn btn-lg hangup-button" ng-disabled="leaveDisable" ng-click="leaveConference()" >Leave</button>
         </div>
         <div class="start-finish finish-time">
             <div>Ends</div>
-            <div class="time">5:00 <span>PM</span></div>
+			<!--<div class="time">5:00 <span>PM</span></div>-->
+            <div class="time">--:-- <span></span></div>
         </div>
     </div>
     <p class="text-left text-muted">Colleagues invited</p>
@@ -27,47 +28,7 @@
             </p>
         </div>
     </div>
-<!--
-    <span ng-if="confUsers.length == 0">No colleague invited</span>
--->
-<!--
-    <div class="media-box">
-        <div class="pull-left">
-            <img src="img/user/03.jpg" alt="Image" class="media-box-object img-circle thumb32">
-        </div>
-        <div class="media-box-body clearfix">
-            <small class="pull-right"><span class="circle circle-active circle-lg text-left"></span></small>
-            <strong class="media-box-heading">Tom Smith</strong>
-            <p class="mb-sm">
-                <small>Designer</small>
-            </p>
-        </div>
-    </div>
-    <div class="media-box">
-        <div class="pull-left">
-            <img src="img/user/01.jpg" alt="Image" class="media-box-object img-circle thumb32">
-        </div>
-        <div class="media-box-body clearfix">
-            <small class="pull-right"><span class="circle circle-active circle-lg text-left"></span></small>
-            <strong class="media-box-heading">Janet Williams</strong>
-            <p class="mb-sm">
-                <small>Designer</small>
-            </p>
-        </div>
-    </div>
-    <div class="media-box">
-        <div class="pull-left">
-            <img src="img/user/04.jpg" alt="Image" class="media-box-object img-circle thumb32">
-        </div>
-        <div class="media-box-body clearfix">
-            <small class="pull-right"><span class="circle circle-grey circle-lg text-left"></span></small>
-            <strong class="media-box-heading">Tom Thompson</strong>
-            <p class="mb-sm">
-                <small>Designer</small>
-            </p>
-        </div>
-    </div>
--->
+    <p class="empty-record" ng-show="confUsers.length == 0">No colleagues invited</p>
     <p class="text-left text-muted your-status-title">Your status</p>
     <div class="media-box">
         <div class="pull-left">
