@@ -1,216 +1,72 @@
+
 <h3>My tasks</h3>
-<div class="form-group mb-xl">
-    <input type="text" placeholder="Search my tasks" class="form-control mb"/>
-    <div class="clearfix">
-        <button type="button" class="btn btn-default">Search</button>
+<div ng-controller="TaskManagerController as taskCtrl" ng-init="taskCtrl.getInitTasks()">
+    <div class="form-group mb-xl">
+        <input type="text" placeholder="Search my tasks" class="form-control mb"/>
+        <div class="clearfix">
+            <button type="button" class="btn btn-default">Search</button>
+        </div>
+        <div class="pull-right">
+            <button class="task-cat-btn btn btn-primary" ng-click="taskCtrl.showAllTasks()">All</button>
+            <button class="task-cat-btn btn btn-primary" ng-click="taskCtrl.showOpenTasks()">Open</button>
+            <button class="task-cat-btn btn btn-primary" ng-click="taskCtrl.showClosedTasks()">Closed</button>
+        </div>
     </div>
-</div>
-<div class="actionables">
-    <!-- START Multiple List group-->
-    <div class="list-group">
-        <a href="#" class="list-group-item">
-            <table class="wd-wide">
-                <tbody>
-                <tr>
-                    <td class="wd-xs">
-                        <div class="ph">
-                            <div class="date-box">
-                                <span class="month">Jan</span>
-                                <br/>
-                                <span class="day">20</span>
+    <div class="actionables">
+        <!-- START Multiple List group-->
+        <div class="list-group" ng-repeat="task in taskCtrl.tasks  track by $index">
+            <a href="#" class="list-group-item">
+                <table class="wd-wide">
+                    <tbody>
+                    <tr>
+                        <td class="wd-xs">
+                            <div class="ph">
+                                <div class="date-box">
+                                    <span class="month">{{task.month}}</span>
+                                    <br/>
+                                    <span class="day">{{task.day}}</span>
+                                </div>
+                                <!--<img src="/img/dummy.png" alt="" class="media-box-object img-responsive img-rounded thumb64"/>-->
                             </div>
-                            <!--<img src="/img/dummy.png" alt="" class="media-box-object img-responsive img-rounded thumb64"/>-->
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ph">
-                            <h4 class="media-box-heading">Task 1</h4>
-                            <small class="text-muted">A longer description of the user's task</small>
-                        </div>
-                    </td>
-                    <td class="hidden-md hidden-lg">
-                        <div class="ph">
-                            <div class="pull-left img-detail hidden-xs hidden-sm">
-                                <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
+                        </td>
+                        <td>
+                            <div class="ph">
+                                <h4 class="media-box-heading">{{task.title}}</h4>
+                                <small class="text-muted">{{task.description}}</small>
                             </div>
-                            <div class="pull-right hidden-sm">
-                                <strong class=""></span>Juan Simms</strong>
-                                <div class="case-number text-muted">Case: 12345</div>
+                        </td>
+                        <td class="hidden-md hidden-lg">
+                            <div class="ph">
+                                <div class="pull-left img-detail hidden-xs hidden-sm">
+                                    <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
+                                </div>
+                                <div class="pull-right hidden-sm">
+                                    <strong class=""></span>{{task.firstName}} {{task.lastName}}</strong>
+                                    <div class="case-number text-muted">Case: {{task.case}}</div>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="wd-sm hidden-xs hidden-sm">
-                        <div class="ph">
-                            <div class="pull-left img-detail">
-                                <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
+                        </td>
+                        <td class="wd-sm hidden-xs hidden-sm">
+                            <div class="ph">
+                                <div class="pull-left img-detail">
+                                    <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
+                                </div>
+                                <div class="pull-right">
+                                    <strong class=""></span>{{task.firstName}} {{task.lastName}}</strong>
+                                    <div class="case-number text-muted">Case: {{task.case}}</div>
+                                </div>
                             </div>
-                            <div class="pull-right">
-                                <strong class=""></span>Juan Simms</strong>
-                                <div class="case-number text-muted">Case: 12345</div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </a>
+        </div>
+        <!-- END Multiple List group-->
     </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item">
-            <table class="wd-wide">
-                <tbody>
-                <tr>
-                    <td class="wd-xs">
-                        <div class="ph">
-                            <div class="date-box">
-                                <span class="month">Jan</span>
-                                <br/>
-                                <span class="day">21</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ph">
-                            <h4 class="media-box-heading">Task 2</h4>
-                            <small class="text-muted">A longer description of the user's task</small>
-                        </div>
-                    </td>
-                    <td class="hidden-md hidden-lg">
-                        <div class="ph">
-                            <div class="pull-left img-detail hidden-xs hidden-sm">
-                                <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
-                            </div>
-                            <div class="pull-right hidden-sm">
-                                <strong class=""></span>Juan Simms</strong>
-                                <div class="case-number text-muted">Case: 12345</div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="wd-sm hidden-xs hidden-sm">
-                        <div class="ph">
-                            <div class="pull-left img-detail">
-                                <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
-                            </div>
-                            <div class="pull-right">
-                                <strong class=""></span>Juan Simms</strong>
-                                <div class="case-number text-muted">Case: 12345</div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item">
-            <table class="wd-wide">
-                <tbody>
-                <tr>
-                    <td class="wd-xs">
-                        <div class="ph">
-                            <div class="date-box">
-                                <span class="month">Jan</span>
-                                <br/>
-                                <span class="day">23</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ph">
-                            <h4 class="media-box-heading">Task 3</h4>
-                            <small class="text-muted">A longer description of the user's task</small>
-                        </div>
-                    </td>
-                    <td class="hidden-md hidden-lg">
-                        <div class="ph">
-                            <div class="pull-left img-detail hidden-xs hidden-sm">
-                                <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
-                            </div>
-                            <div class="pull-right">
-                                <strong class=""></span>Juan Simms</strong>
-                                <div class="case-number text-muted">Case: 12345</div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="wd-sm hidden-xs hidden-sm">
-                        <div class="ph">
-                            <div class="pull-left img-detail">
-                                <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
-                            </div>
-                            <div class="pull-right">
-                                <strong class=""></span>Juan Simms</strong>
-                                <div class="case-number text-muted">Case: 12345</div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </a>
-        <!-- END dashboard main content-->
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item">
-            <table class="wd-wide">
-                <tbody>
-                <tr>
-                    <td class="wd-xs">
-                        <div class="ph">
-                            <div class="date-box">
-                                <span class="month">Jan</span>
-                                <br/>
-                                <span class="day">25</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ph">
-                            <h4 class="media-box-heading">Task 4</h4>
-                            <small class="text-muted">A longer description of the user's task</small>
-                        </div>
-                    </td>
-                    <td class="hidden-md hidden-lg">
-                        <div class="ph">
-                            <div class="pull-left img-detail hidden-xs hidden-sm">
-                                <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
-                            </div>
-                            <div class="pull-right">
-                                <strong class=""></span>Juan Simms</strong>
-                                <div class="case-number text-muted">Case: 12345</div>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="wd-sm hidden-xs hidden-sm">
-                        <div class="ph">
-                            <div class="pull-left img-detail">
-                                <img src="img/user/02.jpg" alt="Image" class="media-box-object img-circle thumb32"/>
-                            </div>
-                            <div class="pull-right">
-                                <strong class=""></span>Juan Simms</strong>
-                                <div class="case-number text-muted">Case: 12345</div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </a>
-        <!-- END dashboard main content-->
-    </div>
-    <!-- END Multiple List group-->
-</div>
-<div class="row">
-    <div class="col-lg-12">
-        <ul class="pagination pagination-sm">
-            <li class="active"><a href="#">1</a>
-            </li>
-            <li><a href="#">2</a>
-            </li>
-            <li><a href="#">3</a>
-            </li>
-            <li><a href="#">»</a>
-            </li>
-        </ul>
+    <div class="row">
+        <div class="col-lg-6 text-right pull-right">
+            <uib-pagination total-items="taskCtrl.totalCount" ng-model="taskCtrl.pageNumber" max-size="taskCtrl.maxSize" class="pagination-sm" items-per-page="taskCtrl.taskPerPage" ng-change="taskCtrl.pagination(taskCtrl.pageNumber)" direction-links="false" boundary-links="true" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+        </div>
     </div>
 </div>

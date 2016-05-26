@@ -72,31 +72,6 @@ now {
 .jumbotron {
   border: 1px solid #dde6e9;
 }
-
-.pagination > li > a,
-.pagination > li > span
-{
-	margin-right: 5px;
-}  
-.tab-pane a.full-width:hover{opacity:0.7;}
-/***dicom loader***/
-.dicomloader{ display: block;z-index: 999;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 0px;
-    text-align: center;}
-.dicomloader img {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    margin: auto; width: 29px;
-}
-
-
 @media only screen and (min-width: 768px) {
   .jumbotron {
     padding: 30px 15px;
@@ -143,11 +118,9 @@ now {
   box-shadow: none;
   border: 0;
 }
-/*
 .btn.btn-default, .ColVis .ColVis_Button {
   border-color: #eaeaea;
 }
-*/
 .input-group .btn, .input-group .ColVis .ColVis_Button, .ColVis .input-group .ColVis_Button {
   font-size: 14px;
   border-color: #dde6e9;
@@ -156,11 +129,9 @@ now {
   font-size: 13px;
 }
 
-/*
 .form-control, body .bootstrap-tagsinput {
   box-shadow: 0 0 0 #000 !important;
 }
-*/
 
 .input-sm,
 select.input-sm {
@@ -11994,7 +11965,7 @@ body .wrapper > footer {
 .tab-pane .collab-tools button {
   width: 100%;
   margin-bottom: 20px;
-  font-size: 1.1em;
+  font-size: 1.2em;
   background: #0B6191;
   color: #ffffff;
 }
@@ -12054,20 +12025,12 @@ body .wrapper > footer {
   min-height: 30px;
 }
 .tab-pane .status > div {
+  width: 50%;
   float: left;
   padding: 0 0 0 10px;
-  width: 100%;
 }
 .tab-pane .status .join-leave {
-  display: inline-block;
   text-align: right;
-  width: 52%;
-}
-.start-finish {
-  display: inline-block;
-  float: right;
-  padding-right: 25px;
-  text-align: left;
 }
 .tab-pane .status .join-leave button {
   width: 90%;
@@ -12229,6 +12192,10 @@ body .wrapper > footer {
 .modal-header.ng-scope {
   background-color: #f2f2f2;
   border-radius: 5px;
+}
+
+.task-cat-btn {
+  width: 70px;
 }
 
 /* ========================================================================

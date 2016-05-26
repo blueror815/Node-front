@@ -47,7 +47,7 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="product in specimatch.products">
-                        <td>
+                        <td style="padding-top: 40px">
                             <div class="checkbox c-checkbox">
                                 <label>
                                     <input type="checkbox"/>
@@ -127,18 +127,6 @@
                     </div>
                     <div class="col-lg-6 text-right pull-right">
                         <uib-pagination total-items="specimatch.totalCount" ng-model="specimatch.pageNumber" max-size="specimatch.maxSize" class="pagination-sm" items-per-page="specimatch.productsPerPage" ng-change="specimatch.pagination(specimatch.pageNumber)" direction-links="false" boundary-links="true" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
-                        <!--
-                        <ul class="pagination pagination-sm">
-                            <li class="active"><a href="#">1</a>
-                            </li>
-                            <li><a href="#">2</a>
-                            </li>
-                            <li><a href="#">3</a>
-                            </li>
-                            <li><a href="#">»</a>
-                            </li>
-                        </ul>
--->
                     </div>
                 </div>
             </div>

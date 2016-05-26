@@ -5,7 +5,7 @@
     function q(a) {
         return void 0 !== a
     }
-	 
+
     function ba() {}
 
     function da(a) {
@@ -13,9 +13,7 @@
             return a.$e ? a.$e : a.$e = new a
         }
     }
-	$( document ).ajaxError(function() {
-		console.log( "Triggered ajaxError handler." );
-	});
+
     function ea(a) {
         var b = typeof a;
         if ("object" == b)
@@ -349,17 +347,6 @@
 
     function Oa(a) {
         a = String(a);
-        if(a == "")
-        {
-			angular.element(document.getElementById('patient-details-page'))
-                                    .scope().showDicomUploadWarning("Token has expired.");
-            angular.element(document.getElementById('patient-details-page'))
-                                    .scope().cancel();
-			angular.element(document.getElementById('my-container'))
-                                    .scope().cancel();
-                                    return false;
-		}
-       // console.log(a);
         if (/^\s*$/.test(a) ? 0 : /^[\],:{}\s\u2028\u2029]*$/.test(a.replace(/\\["\\\/bfnrtu]/g, "@")
                 .replace(/(?:"[^"\\\n\r\u2028\u2029\x00-\x08\x0a-\x1f]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)[\s\u2028\u2029]*(?=:|,|]|}|$)/g, "]")
                 .replace(/(?:^|:|,)(?:[\s\u2028\u2029]*\[)+/g, ""))) try {
@@ -4137,12 +4124,10 @@
         }, a);
         a.m && (a.a.responseType = a.m);
         cb(a.a, "withCredentials") && (a.a.withCredentials = a.g);
-        
-        
         try {
-			Vh(a), 0 < a.j && (a.O = Wh(a.a), fg(a.Ia, Th(a, "Will abort after " + a.j + "ms if incomplete, xhr2 " + a.O)), a.O ? (a.a.timeout = a.j, a.a.ontimeout = pa(a.wf, a)) : a.I = qh(a.wf, a.j, a)), fg(a.Ia, Th(a, "Sending request")), a.w = !0, a.a.send(b), a.w = !1
+            Vh(a), 0 < a.j && (a.O = Wh(a.a), fg(a.Ia, Th(a, "Will abort after " + a.j + "ms if incomplete, xhr2 " + a.O)), a.O ? (a.a.timeout = a.j, a.a.ontimeout = pa(a.wf, a)) : a.I = qh(a.wf, a.j, a)), fg(a.Ia, Th(a, "Sending request")), a.w = !0, a.a.send(b), a.w = !1
         } catch (h) {
-			fg(a.Ia, Th(a, "Send error: " + h.message)), Uh(a,
+            fg(a.Ia, Th(a, "Send error: " + h.message)), Uh(a,
                 h)
         }
     }
@@ -4280,7 +4265,6 @@
     }
 
     function ci(a) {
-		console.log(a);
         if (a.a) return Oa(a.a.responseText)
     }
 
@@ -7867,13 +7851,6 @@
             if ("error" === b.type && 409 !== b.status && c) c(null, b);
             else {
                 var d = null;
-                if(409 === b.status)
-                {
-					angular.element(document.getElementById('patient-details-page'))
-                                    .scope()
-                                    .showDicomUploadWarning("File already Exists");
-                    return false;
-				}
                 409 === b.status ? d = b.context_info.conflicts[0].id : "folder" === b.type && (d = b.id);
                 null !== e ? h.pd(d, e, c) : c && (b = new Zl(d), b.a = a, c(b))
             }
@@ -7881,7 +7858,8 @@
     };
 
     function am(a, b, c, d) {
-		var e = a.b + "folders";
+
+        var e = a.b + "folders";
         b = {
             parent: {
                 id: b
@@ -7909,15 +7887,14 @@
         var h = new FormData;
         h.append("attributes", Pa(c));
         h.append("file", f, b);
-        
-                
         this.Ab(e, function (b) {
             var c = ci(b.target);
             if ("error" === c.type && 409 !== c.status && d) {
-				d(null, c);
+                d(null, c);
             } else {
                 //to save the uploaded image in database
-				if (undefined === c.status) {
+
+                if (undefined === c.status) {
 					
                     var current_patient_id = angular.element(document.getElementById('patient-details-page'))
                         .scope()
@@ -7925,34 +7902,26 @@
                     var api_url = angular.element(document.getElementById('patient-details-page'))
                         .scope()
                         .apiUrl;
-                    function getCookie(name)
-					{
-						var re = new RegExp(name + "=([^;]+)");
-						var value = re.exec(document.cookie);
-						return (value != null) ? unescape(value[1]) : null;
-					}
-					var token = getCookie("token");
+                        
                     var data = {};
                     data.dicom_id = c.entries[0].id;
                     data.file_id = c.entries[0].file_version.id;
                     data.file_name = c.entries[0].name;
                     data.file_type = 'dcm';
                     data.patient_id = current_patient_id;
-							
+
                     if (data.file_name != 'study.boxdicom') {
                         $.ajax({
                             url: api_url + 'api/v1/dicom/saveFile',
                             type: 'POST',
-                            headers: { 'auth_token': token },
                             data: data,
                             success: function (data) {
-								angular.element(document.getElementById('patient-details-page'))
+                                angular.element(document.getElementById('patient-details-page'))
                                     .scope()
                                     .refreshPatientFiles();
-                                    angular.element(document.getElementById('my-container')).scope().showDicomLoader = false;
                             },
                             error: function (err) {
-								console.log(err);
+                                console.log(err);
                             }
                         });
                     }
@@ -14131,12 +14100,10 @@ new S(170, 800, !1, "Flair", "MR"), new S(950, 1900, !1, "PD", "MR")]
         this.w.click()
     };
     g.gh = function (a) {
-		angular.element(document.getElementById('my-container')).scope().showDicomLoader = true;
         a = a.target.files;
         for (var b = 0; b < a.length; b++) Vo(this, a[b])
     };
     g.Yg = function (a) {
-		angular.element(document.getElementById('my-container')).scope().showDicomLoader = true;
         a = a.target.files;
         for (var b = 0; b < a.length; b++) Vo(this, a[b])
     };
@@ -14188,14 +14155,6 @@ new S(170, 800, !1, "Flair", "MR"), new S(950, 1900, !1, "PD", "MR")]
 
     function Vo(a, b) {
         if (b) {
-			angular.element(document.getElementById('my-container')).scope().showDicomLoader = true;
-			var ext = b.name.split('.').pop();
-			if(ext != "dcm" ) {
-				angular.element(document.getElementById('patient-details-page'))
-				.scope()
-				.showFileTypeAlert();
-				return false;
-			}
             var c = b.name;
             if (c && ".DS_Store" !== c) {
                 var d = new FileReader;
