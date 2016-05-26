@@ -685,8 +685,10 @@
 		<button type="button" data-dismiss="modal" aria-hidden="true" ng-click="cancel()" class="close">×</button>
 		<h4 id="myModalLabel" style="padding-top: 0px;" class="text-center modal-title">Box Dicom Import</h4>
 	 </div>
-	 
-	 <div class="modal-body modal-inner-div" id="my-container">
+	 	 <div class="dicomloader" ng-show="showDicomLoader"><img src="img/ajax-loader1.gif" alt="" class="media-box-object img-responsive"/></div>
+
+	 <div class="modal-body modal-inner-div sdf" id="my-container">
+		
 		 <script type="text/javascript">
 			$(function () {
 				box.dicom.createImportWidget('my-container', {
@@ -711,5 +713,6 @@
 			<a class="btn btn-default btn-sm" data-ng-click="uploadFilesPopup()">DICOM File</a>
 			<div class="btn btn-default btn-sm" ngf-select="uploadFilesToBox($file)">Other Files </div>
 		</div>
-	 </div>
+	 </div>	
+	 <div class="dicomloader" ng-show="showNonDicomLoader"><img src="img/ajax-loader1.gif" alt="" class="media-box-object img-responsive"/></div> 
 </script>

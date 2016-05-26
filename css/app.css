@@ -73,7 +73,28 @@ now {
   border: 1px solid #dde6e9;
 }
 
-
+.pagination > li > a,
+.pagination > li > span
+{
+	margin-right: 5px;
+}  
+.tab-pane a.full-width:hover{opacity:0.7;}
+/***dicom loader***/
+.dicomloader{ display: block;z-index: 999;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0px;
+    text-align: center;}
+.dicomloader img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto; width: 29px;
+}
 
 
 @media only screen and (min-width: 768px) {
