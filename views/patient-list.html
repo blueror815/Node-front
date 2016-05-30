@@ -138,17 +138,17 @@
             </thead>
             <tbody>
                 <tr ng-repeat="patient in patients">
-                    <td ng-click="plist.goToDetail(patient.id, $index)">{{ patient.id }}</td>
-                    <td ng-click="plist.goToDetail(patient.id, $index)">{{ patient.first_name }}</td>
-                    <td ng-click="plist.goToDetail(patient.id, $index)">{{ patient.last_name }}</td>
-                    <td ng-click="plist.goToDetail(patient.id, $index)">{{ patient.gender }}</td>                
-                    <td ng-click="plist.goToDetail(patient.id, $index)">{{ patient.updated_at }}</td>
+                    <td ng-click="plist.goToDetail(patient.patient_dr_id, $index)">{{ patient.patient_dr_id }}</td>
+                    <td ng-click="plist.goToDetail(patient.patient_dr_id, $index)">{{ patient.firstname }}</td>
+                    <td ng-click="plist.goToDetail(patient.patient_dr_id, $index)">{{ patient.lastname }}</td>
+                    <td ng-click="plist.goToDetail(patient.patient_dr_id, $index)">{{ patient.gender }}</td>                
+                    <td ng-click="plist.goToDetail(patient.patient_dr_id, $index)">{{ patient.updated_at }}</td>
                     <td>
                         <button type="button" ng-click="plist.modifyPerson($index)"
                                 class="btn btn-sm btn-primary">
                             <em class="fa icon-specimatch ico-moon"></em>
                         </button>
-                        <button type="button" ng-click="plist.removePatient(patient.id)"
+                        <button type="button" ng-click="plist.removePatient(patient.patient_dr_id)"
                                 class="btn btn-sm btn-danger">
                             <em class="fa fa-trash-o"></em>
                         </button>

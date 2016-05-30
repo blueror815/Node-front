@@ -12124,6 +12124,10 @@ body .wrapper > footer {
   color: #fff;
 }
 
+.task-cat-btn {
+  width: 70px;
+}
+
 #account-panel {
   padding-top: 100px;
 }
@@ -12192,10 +12196,6 @@ body .wrapper > footer {
 .modal-header.ng-scope {
   background-color: #f2f2f2;
   border-radius: 5px;
-}
-
-.task-cat-btn {
-  width: 70px;
 }
 
 /* ========================================================================
